@@ -1,0 +1,9 @@
+<section>
+    <div *ngIf="shortUrl">
+        <a href="{{ shortUrl }}">{{ shortUrl }}</a>
+    </div>
+    <form [formGroup]="urlForm" (ngSubmit)="onSubmit(urlForm.value)">
+        <input name="url" type="text" placeholder="URL" formControlName="url" />
+        <button type="submit">Submit</button>
+    </form>
+</section>

@@ -1,0 +1,44 @@
+header {
+    display: flex;
+    justify-content: center;
+
+    > div {
+        display: flex;
+        width: 50vh;
+
+        > h1 {
+            flex-grow: 2;
+        }
+        > nav {
+            flex-grow: 1;
+        }
+    }
+
+}
+
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+
+    li {
+        padding: 5px;
+        cursor: pointer;
+        background-color: #eee;
+        margin-right: 5px;
+
+        &.active {
+            background-color: #ccc;
+            border: 1px solid #bbb
+        }
+    }
+}
+
+
+.outlet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+}

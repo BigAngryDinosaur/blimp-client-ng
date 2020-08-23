@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'blimp-client-ng';
+  title = 'Blimp';
+
+  constructor(private authService: AuthService) { 
+    authService.authenticate();
+  }
+
+  isAuthenticated() {
+    return this.authService.isAuthenticated;
+  }
+
+  logout() {
+    this.authService.logout()
+  }
 }
