@@ -30,7 +30,7 @@ export class UrlFormComponent implements OnInit {
   }
 
   onSubmit(model: IUrlFormValues) {
-    const url = "http://localhost:8082/api/url";
+    const url = "//localhost:8082/api/url";
     this.httpClient
       .post<IUrlResponse>(url, { url: model.url })
       .subscribe((urlResponse: IUrlResponse) => {

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injectable } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms'
-import { HttpClientModule, HttpInterceptor, HttpRequest, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HttpInterceptor, HttpRequest, HttpHandler, HTTP_INTERCEPTORS, HttpClientXsrfModule, HttpXsrfTokenExtractor } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UrlFormComponent } from './url-form/url-form.component';
@@ -11,9 +11,12 @@ import { AuthService } from './auth/auth.service';
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
 
+  constructor(private tokenExtractor: HttpXsrfTokenExtractor) {}
+
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const xhr = req.clone({
-      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
+      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest'),
+      withCredentials: true
     });
     return next.handle(xhr);
   }

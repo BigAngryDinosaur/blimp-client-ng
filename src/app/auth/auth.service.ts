@@ -15,7 +15,7 @@ export interface IUserCredentials {
 @Injectable()
 export class AuthService {
 
-    baseUrl = 'http://localhost:8082';
+    baseUrl = '//localhost:8082';
     isAuthenticated = false;
 
     constructor(private httpClient: HttpClient, private router: Router) { }
