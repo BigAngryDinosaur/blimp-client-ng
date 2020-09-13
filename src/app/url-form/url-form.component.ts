@@ -34,7 +34,7 @@ export class UrlFormComponent implements OnInit {
     this.httpClient
       .post<IUrlResponse>(url, { url: model.url })
       .subscribe((urlResponse: IUrlResponse) => {
-        this.shortUrl = `http://localhost:8082/${urlResponse.code}`;
+        this.shortUrl = `http://localhost:8082/u/${urlResponse.code}`;
       });
   }
 
